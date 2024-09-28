@@ -26,6 +26,7 @@ $(TARGET).hex: $(TARGET).elf
 	avr-objcopy -O ihex -R .eeprom $< $@
 
 # Flash the HEX file to the Arduino
+# CHANGE USB DEVICE IF NEEDED /dev/cu.usbmodemXXXXX...
 flash: $(TARGET).hex
 	avrdude -c arduino -p m328p -P /dev/cu.usbmodem142101 -b 115200 -U flash:w:$(TARGET).hex:i
 
