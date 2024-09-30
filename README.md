@@ -12,6 +12,30 @@ In this project, an LED is controlled using a button connected to **pin PB4** (A
 ## Project 3: PWM-Controlled LED Brightness
 In this project, we introduce **Pulse Width Modulation (PWM)** to control the brightness of an LED connected to **pin PB1** (Arduino Uno's digital pin 9).
 
+## Steps to Upload Code to Arduino
+Follow these steps to compile and upload the code to your Arduino:
+
+1. Navigate to the project directory:
+   ```bash
+   cd path/to/project/directory
+   ```
+
+2. Open the Makefile and update the USB port connection to match your Arduino's port. For example:
+   ```bash
+   sed -i 's/ARDUINO_PORT = \/dev\/ttyACM0/ARDUINO_PORT = \/dev\/ttyUSB0/' Makefile
+   ```
+   Replace `/dev/ttyUSB0` with the actual port your Arduino is connected to.
+
+3. Compile the code:
+   ```bash
+   make
+   ```
+
+4. Upload the compiled code to the Arduino:
+   ```bash
+   make flash
+   ```
+
 ## Datasheet Links
 The datasheets provide detailed technical information needed for using the Arduino configuring the microcontroller.
 
