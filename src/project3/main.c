@@ -17,15 +17,20 @@ int main(void) {
     // Set PB1 as output
     DDRB |= (1 << LED_PIN);
 
+    TCCR1A = 0;  // Clear TCCR1A
+    TCCR1B = 0;  // Clear TCCR1B
+
     // Initialize Timer1 for PWM mode
     TCCR1A |= (1 << COM1A1) | (1 << WGM11);  // Fast PWM mode, 16-bit
-    TCCR1B |= (1 << WGM13) | (1 << WGM12) | (1 << CS11);  // Fast PWM mode, prescaler = 8
+    TCCR1B |= (1 << WGM13) | (1 << WGM12) | (1 << CS10);  // Fast PWM mode, prescaler = 8
+    TCCR1A &= ~(1 << WGM10);  // Ensure WGM10 is cleared
+
 
     // Set the TOP value for 16-bit timer
     ICR1 = PWM_MAX;
 
     uint16_t brightness = 0;
-    int16_t direction = 64;  // Larger step for noticeable change
+    int16_t direction = 1024;  // Larger step for noticeable change
 
     while (1) {
         // Set PWM duty cycle
