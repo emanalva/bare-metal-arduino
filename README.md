@@ -10,7 +10,14 @@ This project blinks an LED connected to **pin PB5** (Arduino Uno's digital pin 1
 In this project, an LED is controlled using a button connected to **pin PB4** (Arduino Uno's digital pin 12). A pull-up resistor is enabled on the button pin to ensure stable input, and the button’s state is debounced in software to avoid noise. The project is modularized, with functions for initializing the pins and reading the button state.
 
 ## Project 3: PWM-Controlled LED Brightness
-In this project, we introduce **Pulse Width Modulation (PWM)** to control the brightness of an LED connected to **pin PB1** (Arduino Uno's digital pin 9).
+In this project, we implement **Pulse Width Modulation (PWM)** to control the brightness of an LED connected to **pin PB1** (Arduino Uno's digital pin 9). This project demonstrates:
+
+- Configuration of Timer1 for 16-bit Fast PWM mode
+- Direct manipulation of Timer1 registers (TCCR1A, TCCR1B, ICR1, OCR1A)
+- Generation of a PWM signal with variable duty cycle
+- Gradual increase and decrease of LED brightness in a continuous cycle
+
+The code uses Timer1's 16-bit resolution (0-65535) for smooth brightness transitions. The LED's brightness is controlled by adjusting the PWM duty cycle, creating a visually appealing "breathing" effect.
 
 ## Steps to Upload Code to Arduino
 Follow these steps to compile and upload the code to your Arduino:
